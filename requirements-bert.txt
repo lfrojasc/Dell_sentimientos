@@ -1,0 +1,4 @@
+# Modelo retador BERT (opcional). PyTorch en su versión para CPU, sin GPU.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
+transformers==5.23.0

@@ -1,0 +1,37 @@
+{
+  "descripcion": "Predicciones de cada modelo desplegado sobre la partición de prueba del notebook. Es la referencia del PSI en el monitoreo (predicciones contra predicciones).",
+  "datos_sha256": "5fbdbc48e06662e7ceccfabb6f73c214cc39ce046e80d983caf9c556ff9a4658",
+  "modelos": {
+    "baseline": {
+      "distribucion_emociones": {
+        "anger": 0.296227,
+        "anticipation": 0.176617,
+        "disgust": 0.201078,
+        "fear": 0.008292,
+        "joy": 0.19403,
+        "optimism": 0.080638,
+        "sadness": 0.04291,
+        "surprise": 0.000207
+      },
+      "tasa_revision_humana": 0.396559,
+      "confianza_media": 0.437892,
+      "tweets": 4824
+    },
+    "bert": {
+      "distribucion_emociones": {
+        "anger": 0.292496,
+        "anticipation": 0.191335,
+        "disgust": 0.136609,
+        "fear": 0.018449,
+        "joy": 0.229892,
+        "optimism": 0.071725,
+        "sadness": 0.05825,
+        "surprise": 0.001244
+      },
+      "tasa_revision_humana": 0.024876,
+      "confianza_media": 0.840838,
+      "tweets": 4824,
+      "tasa_fuera_de_dominio": 0.000622
+    }
+  }
+}

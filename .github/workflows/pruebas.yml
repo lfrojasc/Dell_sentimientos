@@ -1,0 +1,47 @@
+# Corre las pruebas y construye la imagen de Docker en cada push o pull request.
+# Usa solo el baseline: BERT (438 MB) no se descarga aquí para que sea rápido.
+name: Pruebas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    env:
+      DELL_USAR_BERT: "0"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Pruebas (limpieza, política, filtro, API y reproducibilidad del baseline)
+        run: pytest -v
+
+  docker:
+    needs: pruebas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construir la imagen (sin BERT)
+        run: docker build --build-arg INCLUIR_BERT=0 -t dell-emociones .
+      - name: Arrancar el contenedor y consultar la API
+        run: |
+          docker run -d --name servicio -p 8000:8000 dell-emociones
+          for i in $(seq 1 30); do curl -sf http://localhost:8000/salud && break; sleep 2; done
+          curl -sf http://localhost:8000/salud
+          respuesta=$(curl -sf -X POST http://localhost:8000/predecir \
+            -H "Content-Type: application/json" \
+            -d '{"texto": "Your customer service is horrible, worst experience ever"}')
+          echo "$respuesta"
+          echo "$respuesta" | python -c "import json,sys; r=json.load(sys.stdin)['resultados'][0]; assert r['emocion']=='anger', r"
+          curl -sf -o /dev/null http://localhost:8000/demo/
+      - name: Registros del contenedor
+        if: always()
+        run: docker logs servicio

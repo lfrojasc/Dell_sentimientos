@@ -1,0 +1,16 @@
+# Entorno virtual y cachés
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# BERT pesa 438 MB: se publica en una Release de GitHub (ver README)
+artefactos/bert_final/
+*.zip
+
+# Registro de predicciones (se genera al usar el servicio)
+registros/
+
+# Archivos temporales de Office
+~$*

@@ -1,0 +1,12 @@
+familia,modelo,hiperparámetros,semilla,validación,f1_clave_val,desv,seg_entrenamiento_por_pliegue
+TF-IDF + LR,palabras 1-2 / sin pesos,"min_df=2, sublinear_tf, C=1.0, max_iter=1000, class_weight=sin pesos",42,5 pliegues,0.4890467060530844,0.01896101384321343,7.653427819999342
+TF-IDF + LR,palabras 1-2 / balanced,"min_df=2, sublinear_tf, C=1.0, max_iter=1000, class_weight=balanced",42,5 pliegues,0.5588333747744845,0.004878976389346672,6.795216440001968
+TF-IDF + LR,caracteres 3-5 / sin pesos,"min_df=2, sublinear_tf, C=1.0, max_iter=1000, class_weight=sin pesos",42,5 pliegues,0.5487592600086151,0.020445263744787282,14.597940479998943
+TF-IDF + LR,caracteres 3-5 / balanced,"min_df=2, sublinear_tf, C=1.0, max_iter=1000, class_weight=balanced",42,5 pliegues,0.561995774057849,0.00711022990752147,216.13494478000067
+TF-IDF + LR,lemas 1-2 / sin pesos,"min_df=2, sublinear_tf, C=1.0, max_iter=1000, class_weight=sin pesos",42,5 pliegues,0.5066244556192462,0.015109118727098745,6.557298380001157
+TF-IDF + LR,lemas 1-2 / balanced,"min_df=2, sublinear_tf, C=1.0, max_iter=1000, class_weight=balanced",42,5 pliegues,0.5671798916702497,0.0070395704427716815,5.25666073999746
+Recurrente,SimpleRNN,"emb=32, 64 unidades, dropout 0.3, Adam lr=1e-3, clipnorm=1, batch 64, épocas≤10 (mediana óptima 4), vocab 20000, len 65",42,5 pliegues,0.47097886382768134,0.003655116350732643,386.83258784000066
+Recurrente,LSTM,"emb=128, 64 unidades, dropout 0.3, Adam lr=1e-3, clipnorm=1, batch 64, épocas≤10 (mediana óptima 3), vocab 20000, len 65",42,5 pliegues,0.5328132312907408,0.035579542570475596,89.05361654000008
+Recurrente,GRU,"emb=32, 64 unidades, dropout 0.3, Adam lr=1e-3, clipnorm=1, batch 64, épocas≤10 (mediana óptima 3), vocab 20000, len 65",42,5 pliegues,0.5132230213062714,0.015775849677402618,720.5642371000009
+Recurrente,BiLSTM,"emb=64, 64 unidades, dropout 0.3, Adam lr=1e-3, clipnorm=1, batch 64, épocas≤10 (mediana óptima 4), vocab 20000, len 65",42,5 pliegues,0.5412725023660663,0.025784112216167176,130.9377684999985
+Transformer,bert-base-uncased,"fine-tuning completo, AdamW lr=2e-05, wd=0.01, warmup 10 %, lineal, batch 16, épocas=3 (mejor 3), max_len=80, clipping 1.0",42,pliegue 1,0.6997155459056704,,14367.682504999997

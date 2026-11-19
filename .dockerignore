@@ -1,0 +1,14 @@
+.venv
+.git
+.github
+__pycache__
+.pytest_cache
+registros
+datos
+notebooks
+docs
+tests
+artefactos/bert_final
+artefactos/red_recurrente*
+artefactos/matriz_experimentos.csv
+*.zip

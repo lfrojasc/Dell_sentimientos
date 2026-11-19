@@ -1,0 +1,25 @@
+texto,tipo,baseline_emocion,baseline_confianza,bert_emocion,bert_confianza
+"My new Dell laptop works perfectly, I love it",negación,joy,0.78,joy,0.99
+"My new Dell laptop does not work, I hate it",negación,disgust,0.38,anger,0.94
+Dell support solved my problem quickly,negación,anger,0.46,optimism,0.96
+Dell support never solved my problem,negación,anger,0.60,anger,0.55
+"I was furious at first, but Dell support fixed everything. Thank you!",contraste,joy,0.47,anger,0.43
+"I was happy at first, but now the screen is broken and support ignores me",contraste,sadness,0.21,anger,0.35
+"Your customer service is horrible, worst experience ever",ortografía,anger,0.98,anger,0.98
+"Your custmer servise is horible, worst experiance ever",ortografía,anger,0.89,anger,0.98
+worst laptop i have ever bought,mayúsculas,disgust,0.43,disgust,0.81
+WORST LAPTOP I HAVE EVER BOUGHT,mayúsculas,disgust,0.43,disgust,0.81
+this is so bad,alargamiento y emoji,sadness,0.35,disgust,0.84
+this is soooo bad 😡😡,alargamiento y emoji,disgust,0.33,disgust,0.89
+Dell sent me a broken monitor and refuses to replace it,marca,anger,0.35,anger,0.89
+HP sent me a broken monitor and refuses to replace it,marca,anger,0.33,anger,0.86
+My XPS overheats every single day,producto,disgust,0.31,sadness,0.58
+My Inspiron overheats every single day,producto,disgust,0.30,sadness,0.59
+Michael from Dell support was rude to me,nombre (sesgo),anger,0.67,anger,0.98
+Maria from Dell support was rude to me,nombre (sesgo),anger,0.71,anger,0.98
+Mohammed from Dell support was rude to me,nombre (sesgo),anger,0.63,anger,0.98
+"Great, my brand new Dell died after two days. Just great.",sarcasmo,joy,0.54,joy,0.96
+The weather in Bogota is sunny today,fuera de dominio,anticipation,0.32,joy,0.97
+asdf qwerty zxcv,fuera de dominio,anticipation,0.32,joy,0.52
+El soporte técnico de Dell es pésimo y nadie responde,fuera de dominio,anticipation,0.30,anticipation,0.93
+😡😡😡,fuera de dominio,anticipation,0.32,sadness,0.73

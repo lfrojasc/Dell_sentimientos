@@ -1,0 +1,118 @@
+{
+  "proyecto": "FLAJ - Emociones en tweets de Dell",
+  "fecha_ejecucion": "2026-11-17 21:31",
+  "datos": {
+    "archivo": "sentiment-emotion-labelled_Dell_tweets.csv",
+    "sha256": "5fbdbc48e06662e7ceccfabb6f73c214cc39ce046e80d983caf9c556ff9a4658",
+    "filas_originales": 24970,
+    "filas_modelo": 24119,
+    "entrenamiento": 19295,
+    "prueba": 4824,
+    "particion": "StratifiedGroupKFold por Texto base",
+    "semilla": 42
+  },
+  "versiones": {
+    "Python": "3.12.10",
+    "Sistema operativo": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scikit-learn": "1.9.1",
+    "spaCy": "3.8.18",
+    "TensorFlow": "2.21.0",
+    "PyTorch": "2.15.0+cpu",
+    "Transformers": "5.23.0",
+    "Hardware": "CPU, 8 hilos lógicos, sin GPU"
+  },
+  "prerregistro": {
+    "clases_clave": [
+      "anger",
+      "disgust"
+    ],
+    "mejora_minima": 0.02,
+    "latencia_max_ms": 100,
+    "objetivo_exactitud_abstencion": 0.75
+  },
+  "modelos": {
+    "Baseline TF-IDF lemas 1-2": {
+      "representacion": "lemas 1-2",
+      "class_weight": "balanced",
+      "umbral_abstencion": 0.35,
+      "umbrales_clase": {
+        "anger": 0.25,
+        "disgust": 0.2
+      }
+    },
+    "BiLSTM (embedding 64, 4 épocas)": {
+      "arquitectura": "BiLSTM",
+      "embedding": 64,
+      "epocas": 4,
+      "seq_len": 65,
+      "vocabulario": 20000
+    },
+    "BERT bert-base-uncased (3 época(s), pliegue 1)": {
+      "checkpoint": "bert-base-uncased",
+      "max_len": 80,
+      "lr": 2e-05,
+      "batch": 16,
+      "epocas": 3,
+      "mejor_epoca": 3,
+      "umbral_abstencion": 0.45
+    }
+  },
+  "metricas_prueba": {
+    "Baseline TF-IDF lemas 1-2": {
+      "f1_clave": 0.57,
+      "f1_macro": 0.4621,
+      "exactitud": 0.5995,
+      "f1_anger": 0.7706,
+      "f1_disgust": 0.3694,
+      "recall_anger": 0.7525,
+      "recall_disgust": 0.3906,
+      "log_loss": 1.1833,
+      "parametros": 388672.0,
+      "seg_entrenamiento": 12.4121,
+      "tamano_mb": 4.2567,
+      "latencia_p50_ms": 2.2945,
+      "latencia_p95_ms": 4.3215,
+      "tweets_por_seg_lote32": 2249.7963
+    },
+    "BiLSTM (embedding 64, 4 épocas)": {
+      "f1_clave": 0.5723,
+      "f1_macro": 0.4167,
+      "exactitud": 0.557,
+      "f1_anger": 0.7777,
+      "f1_disgust": 0.3669,
+      "recall_anger": 0.741,
+      "recall_disgust": 0.4293,
+      "log_loss": 1.3125,
+      "parametros": 1347080.0,
+      "seg_entrenamiento": 111.8497,
+      "tamano_mb": 16.2093,
+      "latencia_p50_ms": 8.048,
+      "latencia_p95_ms": 9.2192,
+      "tweets_por_seg_lote32": 2125.5595
+    },
+    "BERT bert-base-uncased (3 época(s), pliegue 1)": {
+      "f1_clave": 0.7071,
+      "f1_macro": 0.6165,
+      "exactitud": 0.7438,
+      "f1_anger": 0.8635,
+      "f1_disgust": 0.5507,
+      "recall_anger": 0.8447,
+      "recall_disgust": 0.5808,
+      "log_loss": 0.7605,
+      "parametros": 109488392.0,
+      "seg_entrenamiento": 14367.6825,
+      "tamano_mb": 438.6956,
+      "latencia_p50_ms": 115.0714,
+      "latencia_p95_ms": 189.5017,
+      "tweets_por_seg_lote32": 7.1689
+    }
+  },
+  "modelo_recomendado": "Baseline TF-IDF lemas 1-2",
+  "artefactos_sha256": {
+    "baseline.joblib": "f5719b4b99346932adca6b56ec967c2c7b826f17e82a43bc181574f5be3e5187",
+    "red_recurrente.keras": "1174e3b62c1a61667e0b8227207f7c938b8b0abc671f018a1e9fe14fd769ff60",
+    "bert_final/": "0f49b89f2975c56cb7d7ac8d71fc536a5bdba2b9cd4dd11248481ede0689d4f3"
+  }
+}
