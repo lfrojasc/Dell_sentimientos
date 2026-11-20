@@ -42,7 +42,7 @@ El detalle está en el informe ([docs/](docs/)).
 │   └── demo.py             app de demostración (Gradio)
 ├── artefactos/             modelos entrenados y registro del notebook
 ├── datos/                  dataset original (CSV)
-├── docs/                   informe técnico (Word y PDF)
+├── docs/                   informe técnico (Word y PDF) y presentacion power point
 ├── notebooks/              notebook ejecutado
 ├── scripts/                descargar BERT y reproducir la evaluación
 ├── tests/                  pruebas automáticas
